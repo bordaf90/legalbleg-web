@@ -20,7 +20,7 @@
             </div>
         </div>
         <div>
-            <a href="https://linkedin.com" target="_blank" class="btn-nav">Contacto Oficial</a>
+            <button onclick="openModal()" class="btn-nav">Contacto Oficial</button>
         </div>
     </nav>
 
@@ -30,7 +30,7 @@
             <span class="hero-tag">Data Intelligence. Legal Strategy.</span>
             <h1>Auditoría Forense de Datos y Gobernanza para <span class="cyan-highlight">Activos Tecnológicos</span></h1>
             <p>Certificamos la consistencia, trazabilidad y cumplimiento normativo de plataformas complejas, infraestructuras Cloud y modelos de Inteligencia Artificial.</p>
-            <a href="https://linkedin.com" target="_blank" class="btn-hero">Solicitar Consulta Técnica</a>
+            <button onclick="openModal()" class="btn-hero">Solicitar Consulta Técnica</button>
         </div>
         <!-- COLUMNA DERECHA: RED DE DATOS DINÁMICA DE ALTA INGENIERÍA -->
         <div class="hero-graphic-box">
@@ -76,7 +76,7 @@
             <div class="avatar-title">Founder & CEO</div>
         </div>
         <div class="about-content">
-            <h3>Librasgo Interdisciplinario</h3>
+            <h3>Liderazgo Interdisciplinario</h3>
             <p class="about-p">Analista de Sistemas especializado en ingeniería de datos, con experiencia en el modelado y auditoría de arquitecturas críticas corporativas.</p>
             <div class="quote-box">
                 "Unificamos la precisión milimétrica de la ingeniería de datos con el blindaje estratégico que exige el mercado internacional, asegurando que el papel nunca prometa lo que la infraestructura operativa no puede sostener."
@@ -84,24 +84,88 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE CONTACTO SEGURA Y DIRECTA -->
-    <section class="contact-section">
-        <h3 class="contact-title">Iniciar Evaluación de Activos</h3>
-        <p class="contact-p">Solicite un diagnóstico inicial confidencial bajo acuerdo NDA para su plataforma, base de datos o modelo de Inteligencia Artificial.</p>
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="mailto:borda@legalbleg.com" class="btn-submit-link">
-                Contactar a Consultoría Oficial (borda@legalbleg.com)
-            </a>
+    <!-- SECCIÓN DE CREDENCIALES REEMPLAZANDO EL MENÚ ENLACE INEFICIENTE -->
+    <section class="credenciales-section">
+        <div class="credenciales-container">
+            <div class="meta-item">
+                <h5>Rigor Analítico</h5>
+                <p>Evaluación matemática de sistemas basada en logs reales, pipelines y arquitecturas cloud comprobables.</p>
+            </div>
+            <div class="meta-item">
+                <h5>Estándar Transfronterizo</h5>
+                <p>Estructuras y protocolos de consultoría diseñados para operar bajo marcos normativos internacionales.</p>
+            </div>
+            <div class="meta-item">
+                <h5>Absoluto Compliance</h5>
+                <p>Operaciones cubiertas bajo estrictos Acuerdos Bilaterales de Confidencialidad y No Divulgación (NDA).</p>
+            </div>
         </div>
     </section>
+
+    <!-- VENTANA MODAL (POPUP INTERACTIVO) DE FORMULARIO -->
+    <div id="contactModal" class="modal-backdrop">
+        <div class="modal-content">
+            <button onclick="closeModal()" class="modal-close-btn">&times;</button>
+            <h3 class="modal-title">Iniciar Evaluación de Activos</h3>
+            <p class="modal-p">Los datos se procesarán de forma segura bajo estricto secreto profesional.</p>
+            
+            <div class="form-group">
+                <label>Nombre Corporativo / Estudio Profesional</label>
+                <input type="text" id="formEmpresa" class="form-control" placeholder="Ej. Snoop Consulting o Estudio Monte Inglese" required>
+            </div>
+            <div class="form-group">
+                <label>Tipo de Activo de Datos a Auditar</label>
+                <select id="formActivo" class="form-control">
+                    <option value="Infraestructura Cloud / SLA">Infraestructura Cloud / Verificación de SLA</option>
+                    <option value="Dataset de Entrenamiento / Compliance IA">Dataset de Entrenamiento / Compliance de IA</option>
+                    <option value="Due Diligence Tecnológico (Inversión/M&A)">Due Diligence Tecnológico (Inversión/M&A)</option>
+                </select>
+            </div>
+            <button onclick="sendMail()" class="btn-submit">Enviar Requerimiento Técnico</button>
+        </div>
+    </div>
 
     <!-- PIE DE PÁGINA CORPORATIVO -->
     <footer>
         <p>&copy; 2026 Borda & Co. | Legal Engineering. Todos los derechos reservados. Auditoría forense de datos, gobernanza y mitigación de riesgos en activos tecnológicos.</p>
     </footer>
 
-    <!-- SCRIPT DE INGENIERÍA: SISTEMA DE PARTICULAS Y NODOS INTERACTIVOS -->
+    <!-- SCRIPT DE INGENIERÍA: SISTEMA DE PARTICULAS Y VENTANA INTERACTIVA -->
     <script>
+        // LÓGICA DE LA VENTANA MODAL (POPUP)
+        function openModal() {
+            document.getElementById('contactModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+        // Cerrar al hacer clic fuera del cuadro
+        window.onclick = function(event) {
+            const modal = document.getElementById('contactModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // PROCESADOR DE ENVÍO SEGURO SIN CARTEL DE ADVERTENCIA
+        function sendMail() {
+            const empresa = document.getElementById('formEmpresa').value;
+            const activo = document.getElementById('formActivo').value;
+            
+            if(!empresa) {
+                alert("Por favor, ingrese el nombre corporativo.");
+                return;
+            }
+
+            const subject = encodeURIComponent(`Solicitud de Auditoría Forense - ${empresa}`);
+            const body = encodeURIComponent(`Estimado equipo de Borda & Co.,\n\nSe solicita una evaluación inicial técnica para la organización: ${empresa}.\n\nTipo de Activo a analizar:\n${activo}\n\nQuedamos a disposición para la coordinación de la llamada inicial bajo acuerdo de confidencialidad (NDA).\n\nUn cordial saludo.`);
+            
+            // Abrimos de forma segura la ventana del cliente nativo encriptada hacia info@
+            window.location.href = `mailto:info@://legalbleg.com{subject}&body=${body}`;
+            closeModal();
+        }
+
+        // LÓGICA DEL CANVAS INTERACTIVO DE RED DE NODOS
         const canvas = document.getElementById('networkCanvas');
         const ctx = canvas.getContext('2d');
 
@@ -112,8 +176,7 @@
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        // Generamos más nodos (20 puntos en red)
-        const numNodes = 20;
+        const numNodes = 25; // Aumentamos la cantidad de nodos para poblar la figura
         const nodes = [];
 
         for (let i = 0; i < numNodes; i++) {
@@ -129,7 +192,6 @@
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
-            // Actualizar posiciones de los nodos
             nodes.forEach(node => {
                 node.x += node.vx;
                 node.y += node.vy;
@@ -137,35 +199,4 @@
                 if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
                 if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
 
-                // Dibujar el nodo (Cyan)
                 ctx.beginPath();
-                ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-                ctx.fillStyle = '#22D3EE';
-                ctx.fill();
-            });
-
-            // Trazar múltiples líneas de conexión entre nodos cercanos
-            ctx.lineWidth = 0.5;
-            for (let i = 0; i < nodes.length; i++) {
-                for (let j = i + 1; j < nodes.length; j++) {
-                    const dx = nodes[i].x - nodes[j].x;
-                    const dy = nodes[i].y - nodes[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    // Si están cerca, trazamos la conexión con opacidad dinámica
-                    if (distance < 85) {
-                        ctx.beginPath();
-                        ctx.moveTo(nodes[i].x, nodes[i].y);
-                        ctx.lineTo(nodes[j].x, nodes[j].y);
-                        ctx.strokeStyle = `rgba(34, 211, 238, ${1 - (distance / 85)})`;
-                        ctx.stroke();
-                    }
-                }
-            }
-
-            requestAnimationFrame(animate);
-        }
-        animate();
-    </script>
-</body>
-</html>
