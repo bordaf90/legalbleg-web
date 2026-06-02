@@ -4,204 +4,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Borda & Co. | Legal Engineering</title>
-    
-    <!-- FAVICON (EL LOGO EN LA PESTAÑA DE LA BARRA DEL BUSCADOR) -->
     <link rel="icon" type="image/jpeg" href="bleg.jpg">
+    <!-- VINCULACIÓN AL ARCHIVO DE ESTILOS SEPARADO -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-    <style>
-        /* CONFIGURACIÓN DE IDENTIDAD VISUAL CORPORATIVA (PALETA DEL BANNER) */
-        :root {
-            --bg-deep-navy: #040b14;    /* El fondo oscuro real de tu logo */
-            --bg-card: #0a1424;         /* Azul noche intermedio para contraste */
-            --accent-cyan: #22D3EE;     /* Cyan eléctrico de tus nodos */
-            --text-white: #FFFFFF;      /* Blanco puro */
-            --text-gray: #94A3B8;       /* Gris slate para textos descriptivos */
-            --border-navy: #1E293B;     /* Bordes finos de separación */
-        }
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="navbar">
+        <div class="logo-box">
+            <img src="bleg.jpg" alt="Borda & Co." class="logo-img">
+            <div class="logo-title-container">
+                <span class="logo-text">Borda & Co.</span>
+                <span class="logo-sub">Legal Engineering</span>
+            </div>
+        </div>
+        <div>
+            <a href="https://linkedin.com" target="_blank" class="btn-nav">Contacto Oficial</a>
+        </div>
+    </nav>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; 
-            background-color: var(--bg-deep-navy); 
-            color: var(--text-white); 
-            line-height: 1.6; 
-        }
-        
-        /* BARRA DE NAVEGACIÓN SUPREMA */
-        .navbar { 
-            padding: 20px 60px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 1px solid var(--border-navy);
-            background-color: var(--bg-deep-navy);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo-box { display: flex; align-items: center; gap: 14px; }
-        .logo-img { width: 50px; height: 50px; object-fit: contain; border-radius: 4px; }
-        .logo-title-container { display: flex; flex-direction: column; justify-content: center; }
-        .logo-text { font-size: 22px; font-weight: 700; color: var(--text-white); font-family: Garamond, Georgia, serif; }
-        .logo-sub { font-size: 10px; font-weight: 400; color: var(--text-gray); letter-spacing: 2px; text-transform: uppercase; margin-top: 1px; }
-        
-        .btn-nav { 
-            border: 1px solid var(--accent-cyan); 
-            color: var(--accent-cyan); 
-            text-decoration: none; 
-            padding: 10px 22px; 
-            border-radius: 4px; 
-            font-size: 13px; 
-            font-weight: 600; 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.2s ease; 
-        }
-        .btn-nav:hover { background-color: var(--accent-cyan); color: var(--bg-deep-navy); }
+    <!-- SECCIÓN PRINCIPAL (HERO) -->
+    <header class="hero-container">
+        <div class="hero-content">
+            <span class="hero-tag">Data Intelligence. Legal Strategy.</span>
+            <h1>Auditoría Forense de Datos y Gobernanza para <span class="cyan-highlight">Activos Tecnológicos</span></h1>
+            <p>Certificamos la consistencia, trazabilidad y cumplimiento normativo de plataformas complejas, infraestructuras Cloud y modelos de Inteligencia Artificial.</p>
+            <a href="https://linkedin.com" target="_blank" class="btn-hero">Solicitar Consulta Técnica</a>
+        </div>
+        <div class="hero-graphic-box">
+            <svg width="100%" height="260" viewBox="0 0 200 120" fill="none" stroke="#22D3EE" stroke-width="0.7">
+                <circle cx="30" cy="30" r="3" fill="#22D3EE"/>
+                <circle cx="110" cy="20" r="2.5" fill="#22D3EE"/>
+                <circle cx="170" cy="60" r="3" fill="#22D3EE"/>
+                <circle cx="70" cy="90" r="2.5" fill="#22D3EE"/>
+                <circle cx="140" cy="100" r="3" fill="#22D3EE"/>
+                <line x1="30" y1="30" x2="110" y2="20" stroke-opacity="0.5"/>
+                <line x1="110" y1="20" x2="170" y2="60" stroke-opacity="0.5"/>
+                <line x1="30" y1="30" x2="70" y2="90" stroke-opacity="0.5"/>
+                <line x1="70" y1="90" x2="140" y2="100" stroke-opacity="0.5"/>
+                <line x1="170" y1="60" x2="140" y2="100" stroke-opacity="0.5"/>
+            </svg>
+        </div>
+    </header>
 
-        /* HERO INTERACTIVO EN DOS COLUMNAS (MÁXIMO IMPACTO VISUAL) */
-        .hero-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 80px 60px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        .hero-content { space-y: 24px; }
-        .hero-tag { color: var(--accent-cyan); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; }
-        .hero h1 { 
-            font-size: 48px; 
-            font-weight: 800; 
-            line-height: 1.15; 
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
-        }
-        .hero h1 .cyan-highlight { color: var(--accent-cyan); border-bottom: 3px solid var(--accent-cyan); padding-bottom: 4px; }
-        .hero p { color: var(--text-gray); font-size: 18px; margin-bottom: 35px; }
-        
-        .btn-hero { 
-            background-color: var(--text-white); 
-            color: var(--bg-deep-navy); 
-            text-decoration: none; 
-            padding: 16px 36px; 
-            border-radius: 6px; 
-            font-weight: 700; 
-            font-size: 15px; 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: inline-block; 
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 14px rgba(34, 211, 238, 0.2);
-        }
-        .btn-hero:hover { transform: translateY(-2px); background-color: #E2E8F0; }
+    <!-- EL DIAGNÓSTICO / EL VACÍO DE MERCADO -->
+    <section class="pain-section">
+        <h2>¿Soportan sus datos las exigencias de sus contratos y auditorías?</h2>
+        <div class="sub-bar"></div>
+        <p>El derecho tradicional diseña excelentes marcos normativos en el papel, pero carece de las herramientas técnicas para auditar la infraestructura subyacente. En Borda & Co. aportamos el rigor de la ingeniería para garantizar que la lógica profunda de sus datos soporte con rigidez real los compromisos contractuales, regulatorios y societarios.</p>
+    </section>
 
-        /* COLUMNA DERECHA: LA GRÁFICA DE DATOS ABSTRACTA DEL BANNER */
-        .hero-graphic-box {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-navy);
-            border-radius: 12px;
-            padding: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-graphic-box::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(34,211,238,0.05) 0%, transparent 70%);
-        }
+    <!-- MARCOS DE AUDITORÍA -->
+    <section class="services-section">
+        <div class="services-container">
+            <h3 class="services-title">Marcos de Auditoría Especializada</h3>
+            <div class="services-grid">
+                <div class="card">
+                    <div class="card-num">01 / Auditoría Forense Express</div>
+                    <h4>Validación de SLAs e Infraestructura</h4>
+                    <p class="card-text">Certificación analítica de Pipeline de datos, registros críticos (logs) y viabilidad matemática de acuerdos de nivel de servicio frente a nubes reales.</p>
+                </div>
+                <div class="card">
+                    <div class="card-num">02 / Compliance de Modelos de IA</div>
+                    <h4>Gobernanza de Datasets</h4>
+                    <p class="card-text">Auditoría sobre la procedencia, legalidad, estructuración y mitigación de sesgos en los datos de entrenamiento utilizados para alimentar algoritmos.</p>
+                </div>
+                <div class="card">
+                    <div class="card-num">03 / Due Diligence Tecnológico</div>
+                    <h4>Mitigación de Riesgos Financieros</h4>
+                    <p class="card-text">Análisis predictivo y preparación de la base operativa de datos y dependencias de código para robustecer las valuaciones corporativas antes de rondas de inversión.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        /* SECCIÓN DE RESUMEN EJECUTIVO (EL DOLOR) */
-        .pain-section { 
-            padding: 100px 60px; 
-            max-width: 1000px; 
-            margin: 0 auto; 
-            text-align: center;
-            border-top: 1px solid var(--border-navy);
-        }
-        .pain-section h2 { font-size: 34px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px; }
-        .sub-bar { width: 80px; height: 3px; background-color: var(--accent-cyan); margin: 0 auto 35px auto; }
-        .pain-section p { font-size: 19px; color: var(--text-gray); line-height: 1.7; }
+    <!-- SOBRE EL FOUNDER -->
+    <section class="about-section">
+        <div class="avatar-frame">
+            <div class="avatar-name">Abraham Borda</div>
+            <div class="avatar-title">Founder & CEO</div>
+        </div>
+        <div class="about-content">
+            <h3>Liderazgo Interdisciplinario</h3>
+            <p class="about-p">Analista de Sistemas especializado en ingeniería de datos, con experiencia en el modelado y auditoría de arquitecturas críticas corporativas.</p>
+            <div class="quote-box">
+                "Unificamos la precisión milimétrica de la ingeniería de datos con el blindaje estratégico que exige el mercado internacional, asegurando que el papel nunca prometa lo que la infraestructura operativa no puede sostener."
+            </div>
+        </div>
+    </section>
 
-        /* MÓDULOS DE AUDITORÍA (GRILLA EJECUTIVA DE 3 COLUMNAS) */
-        .services-section { padding: 100px 60px; border-top: 1px solid var(--border-navy); background-color: rgba(10, 20, 36, 0.3); }
-        .services-container { max-width: 1300px; margin: 0 auto; }
-        .services-title { text-align: center; font-size: 26px; font-weight: 700; margin-bottom: 60px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-white); }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .card { 
-            background-color: var(--bg-card); 
-            padding: 50px 40px; 
-            border-radius: 8px; 
-            border: 1px solid var(--border-navy); 
-            transition: all 0.3s ease;
-        }
-        .card:hover { border-color: var(--accent-cyan); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-        .card-num { color: var(--accent-cyan); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; display: block; }
-        .card h4 { font-size: 22px; font-weight: 700; margin-bottom: 15px; color: var(--text-white); }
-        .card-text { color: var(--text-gray); font-size: 16px; line-height: 1.6; }
+    <!-- FORMULARIO DE REQUERIMIENTOS DIRIGIDO A INFO@LEGALBLEG.COM -->
+    <section class="contact-section">
+        <h3 class="contact-title">Iniciar Evaluación de Activos</h3>
+        <p class="contact-p">Solicite un diagnóstico inicial confidencial bajo acuerdo NDA para su plataforma o base de datos.</p>
+        <form action="mailto:info@legalbleg.com" method="post" enctype="text/plain">
+            <div class="form-group">
+                <label>Nombre Corporativo / Estudio Jurisprudencial</label>
+                <input type="text" name="Organizacion" class="form-control" placeholder="Ej. Snoop Consulting o Estudio Monte Inglese" required>
+            </div>
+            <div class="form-group">
+                <label>Correo Electrónico Oficial</label>
+                <input type="email" name="Email" class="form-control" placeholder="nombre@empresa.com" required>
+            </div>
+            <div class="form-group">
+                <label>Tipo de Activo de Datos a Auditar</label>
+                <select name="Tipo_Activo" class="form-control">
+                    <option value="SLA_Cloud">Infraestructura Cloud / Verificación de SLA</option>
+                    <option value="IA_Datasets">Dataset de Entrenamiento / Compliance de IA</option>
+                    <option value="Due_Diligence">Due Diligence Tecnológico (Inversión/M&A)</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-submit">Enviar Solicitud Técnica</button>
+        </form>
+    </section>
 
-        /* PERFIL DEL CONSULTOR PRINCIPAL */
-        .about-section { 
-            padding: 100px 60px; 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 60px;
-            align-items: center;
-            border-top: 1px solid var(--border-navy);
-        }
-        .avatar-frame { 
-            border: 1px solid var(--border-navy); 
-            padding: 35px; 
-            border-radius: 8px; 
-            text-align: center;
-            background-color: var(--bg-card);
-        }
-        .avatar-name { font-size: 22px; font-weight: 700; color: var(--text-white); }
-        .avatar-title { font-size: 12px; color: var(--accent-cyan); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 6px; }
-        .about-content h3 { font-size: 30px; font-weight: 700; margin-bottom: 20px; }
-        .about-p { color: var(--text-gray); font-size: 17px; margin-bottom: 25px; }
-        .quote-box { 
-            background-color: rgba(34, 211, 238, 0.02); 
-            padding: 30px; 
-            border-left: 4px solid var(--accent-cyan); 
-            border-radius: 0 8px 8px 0; 
-            font-style: italic; 
-            color: var(--text-white); 
-            font-size: 15px; 
-        }
+    <!-- PIE DE PÁGINA CORPORATIVO -->
+    <footer>
+        <p>&copy; 2026 Borda & Co. | Legal Engineering. Todos los derechos reservados. Auditoría forense de datos, gobernanza y mitigación de riesgos en activos tecnológicos.</p>
+    </footer>
 
-        /* FORMULARIO DE CONTACTO / RECEPCIÓN DE PLIEGOS */
-        .contact-section { padding: 100px 60px; border-top: 1px solid var(--border-navy); max-width: 700px; margin: 0 auto; }
-        .contact-title { text-align: center; font-size: 28px; font-weight: 700; margin-bottom: 15px; }
-        .contact-p { text-align: center; color: var(--text-gray); margin-bottom: 40px; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-size: 14px; color: var(--text-gray); margin-bottom: 8px; font-weight: 500; }
-        .form-control { width: 100%; background-color: var(--bg-card); border: 1px solid var(--border-navy); border-radius: 6px; padding: 14px; color: var(--text-white); font-size: 15px; transition: border-color 0.2s; }
-        .form-control:focus { outline: none; border-color: var(--accent-cyan); }
-        .btn-submit { width: 100%; background-color: var(--accent-cyan); color: var(--bg-deep-navy); border: none; padding: 16px; border-radius: 6px; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background 0.2s; }
-        .btn-submit:hover { background-color: #67e8f9; }
-
-        /* FOOTER CORPORATIVO */
-        footer { 
-            background-color: #02060d; 
-            color: #475569; 
-            padding: 50px 20px; 
-            text-align: center; 
-            font-size: 13px; 
-            border-top: 1px solid var(--border-navy); 
-        }
-        
-        /* ADAPTABILIDAD PARA MÓVILES (RESPONSIVE) */
-        @media (max-width: 968px) {
-            .navbar { padding: 20px; }
-            .hero-container { grid-template-columns: 1fr; padding: 40px 20px; text-align: center; gap: 40px; }
-            .hero h1 { font-size: 36px; }
-            .hero-graphic-box { display: none; }
-            .pain-section, .services-section, .about-section, .contact-section { padding: 60px 20px; }
+</body>
+</html>
