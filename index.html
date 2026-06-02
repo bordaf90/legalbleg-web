@@ -32,19 +32,9 @@
             <p>Certificamos la consistencia, trazabilidad y cumplimiento normativo de plataformas complejas, infraestructuras Cloud y modelos de Inteligencia Artificial.</p>
             <a href="https://linkedin.com" target="_blank" class="btn-hero">Solicitar Consulta Técnica</a>
         </div>
+        <!-- COLUMNA DERECHA: RED DE DATOS DINÁMICA DE ALTA INGENIERÍA -->
         <div class="hero-graphic-box">
-            <svg width="100%" height="260" viewBox="0 0 200 120" fill="none" stroke="#22D3EE" stroke-width="0.7">
-                <circle cx="30" cy="30" r="3" fill="#22D3EE"/>
-                <circle cx="110" cy="20" r="2.5" fill="#22D3EE"/>
-                <circle cx="170" cy="60" r="3" fill="#22D3EE"/>
-                <circle cx="70" cy="90" r="2.5" fill="#22D3EE"/>
-                <circle cx="140" cy="100" r="3" fill="#22D3EE"/>
-                <line x1="30" y1="30" x2="110" y2="20" stroke-opacity="0.5"/>
-                <line x1="110" y1="20" x2="170" y2="60" stroke-opacity="0.5"/>
-                <line x1="30" y1="30" x2="70" y2="90" stroke-opacity="0.5"/>
-                <line x1="70" y1="90" x2="140" y2="100" stroke-opacity="0.5"/>
-                <line x1="170" y1="60" x2="140" y2="100" stroke-opacity="0.5"/>
-            </svg>
+            <canvas id="networkCanvas"></canvas>
         </div>
     </header>
 
@@ -86,7 +76,7 @@
             <div class="avatar-title">Founder & CEO</div>
         </div>
         <div class="about-content">
-            <h3>Liderazgo Interdisciplinario</h3>
+            <h3>Librasgo Interdisciplinario</h3>
             <p class="about-p">Analista de Sistemas especializado en ingeniería de datos, con experiencia en el modelado y auditoría de arquitecturas críticas corporativas.</p>
             <div class="quote-box">
                 "Unificamos la precisión milimétrica de la ingeniería de datos con el blindaje estratégico que exige el mercado internacional, asegurando que el papel nunca prometa lo que la infraestructura operativa no puede sostener."
@@ -94,29 +84,15 @@
         </div>
     </section>
 
-    <!-- FORMULARIO DE REQUERIMIENTOS DIRIGIDO A INFO@LEGALBLEG.COM -->
+    <!-- SECCIÓN DE CONTACTO SEGURA Y DIRECTA -->
     <section class="contact-section">
         <h3 class="contact-title">Iniciar Evaluación de Activos</h3>
-        <p class="contact-p">Solicite un diagnóstico inicial confidencial bajo acuerdo NDA para su plataforma o base de datos.</p>
-        <form action="mailto:info@legalbleg.com" method="post" enctype="text/plain">
-            <div class="form-group">
-                <label>Nombre Corporativo / Estudio Jurisprudencial</label>
-                <input type="text" name="Organizacion" class="form-control" placeholder="Ej. Snoop Consulting o Estudio Monte Inglese" required>
-            </div>
-            <div class="form-group">
-                <label>Correo Electrónico Oficial</label>
-                <input type="email" name="Email" class="form-control" placeholder="nombre@empresa.com" required>
-            </div>
-            <div class="form-group">
-                <label>Tipo de Activo de Datos a Auditar</label>
-                <select name="Tipo_Activo" class="form-control">
-                    <option value="SLA_Cloud">Infraestructura Cloud / Verificación de SLA</option>
-                    <option value="IA_Datasets">Dataset de Entrenamiento / Compliance de IA</option>
-                    <option value="Due_Diligence">Due Diligence Tecnológico (Inversión/M&A)</option>
-                </select>
-            </div>
-            <button type="submit" class="btn-submit">Enviar Solicitud Técnica</button>
-        </form>
+        <p class="contact-p">Solicite un diagnóstico inicial confidencial bajo acuerdo NDA para su plataforma, base de datos o modelo de Inteligencia Artificial.</p>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="mailto:borda@legalbleg.com" class="btn-submit-link">
+                Contactar a Consultoría Oficial (borda@legalbleg.com)
+            </a>
+        </div>
     </section>
 
     <!-- PIE DE PÁGINA CORPORATIVO -->
@@ -124,5 +100,72 @@
         <p>&copy; 2026 Borda & Co. | Legal Engineering. Todos los derechos reservados. Auditoría forense de datos, gobernanza y mitigación de riesgos en activos tecnológicos.</p>
     </footer>
 
+    <!-- SCRIPT DE INGENIERÍA: SISTEMA DE PARTICULAS Y NODOS INTERACTIVOS -->
+    <script>
+        const canvas = document.getElementById('networkCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.clientWidth - 80;
+            canvas.height = 260;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // Generamos más nodos (20 puntos en red)
+        const numNodes = 20;
+        const nodes = [];
+
+        for (let i = 0; i < numNodes; i++) {
+            nodes.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.6,
+                vy: (Math.random() - 0.5) * 0.6,
+                radius: Math.random() * 2 + 2
+            });
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Actualizar posiciones de los nodos
+            nodes.forEach(node => {
+                node.x += node.vx;
+                node.y += node.vy;
+
+                if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
+                if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+
+                // Dibujar el nodo (Cyan)
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+                ctx.fillStyle = '#22D3EE';
+                ctx.fill();
+            });
+
+            // Trazar múltiples líneas de conexión entre nodos cercanos
+            ctx.lineWidth = 0.5;
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    // Si están cerca, trazamos la conexión con opacidad dinámica
+                    if (distance < 85) {
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.strokeStyle = `rgba(34, 211, 238, ${1 - (distance / 85)})`;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
 </body>
 </html>
