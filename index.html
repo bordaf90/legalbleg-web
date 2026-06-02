@@ -9,46 +9,47 @@
     <link rel="icon" type="image/jpeg" href="bleg.jpg">
 
     <style>
-        /* PALETA DE COLORES PREMIUM DE TU BANNER DE LINKEDIN */
+        /* CONFIGURACIÓN DE IDENTIDAD VISUAL CORPORATIVA (PALETA DEL BANNER) */
         :root {
-            --bg-deep-navy: #040b14;    /* Fondo real ultra oscuro de tu logo */
-            --bg-card: #0a1424;         /* Azul noche intermedio para las tarjetas */
-            --accent-cyan: #22D3EE;     /* El celeste/cyan de las líneas de los nodos */
-            --text-pure-white: #FFFFFF; /* Texto principal en blanco */
-            --text-muted-gray: #94A3B8; /* Texto secundario gris claro */
-            --border-navy: #1E293B;     /* Bordes estructurales sutiles */
+            --bg-deep-navy: #040b14;    /* El fondo oscuro real de tu logo */
+            --bg-card: #0a1424;         /* Azul noche intermedio para contraste */
+            --accent-cyan: #22D3EE;     /* Cyan eléctrico de tus nodos */
+            --text-white: #FFFFFF;      /* Blanco puro */
+            --text-gray: #94A3B8;       /* Gris slate para textos descriptivos */
+            --border-navy: #1E293B;     /* Bordes finos de separación */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; 
             background-color: var(--bg-deep-navy); 
-            color: var(--text-pure-white); 
+            color: var(--text-white); 
             line-height: 1.6; 
         }
         
-        /* HEADER / NAVBAR */
+        /* BARRA DE NAVEGACIÓN SUPREMA */
         .navbar { 
-            padding: 20px 40px; 
+            padding: 20px 60px; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
             border-bottom: 1px solid var(--border-navy);
             background-color: var(--bg-deep-navy);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         .logo-box { display: flex; align-items: center; gap: 14px; }
-        
-        /* TU LOGO OFICIAL INYECTADO COMO IMAGEN */
         .logo-img { width: 50px; height: 50px; object-fit: contain; border-radius: 4px; }
         .logo-title-container { display: flex; flex-direction: column; justify-content: center; }
-        .logo-text { font-size: 20px; font-weight: 700; tracking: 0.5px; color: var(--text-pure-white); font-family: Garamond, Georgia, serif; }
-        .logo-sub { font-size: 10px; font-weight: 400; color: var(--text-muted-gray); letter-spacing: 2px; text-transform: uppercase; margin-top: 1px; }
+        .logo-text { font-size: 22px; font-weight: 700; color: var(--text-white); font-family: Garamond, Georgia, serif; }
+        .logo-sub { font-size: 10px; font-weight: 400; color: var(--text-gray); letter-spacing: 2px; text-transform: uppercase; margin-top: 1px; }
         
         .btn-nav { 
             border: 1px solid var(--accent-cyan); 
             color: var(--accent-cyan); 
             text-decoration: none; 
-            padding: 8px 18px; 
+            padding: 10px 22px; 
             border-radius: 4px; 
             font-size: 13px; 
             font-weight: 600; 
@@ -58,165 +59,149 @@
         }
         .btn-nav:hover { background-color: var(--accent-cyan); color: var(--bg-deep-navy); }
 
-        /* HERO SECTION */
-        .hero { 
-            padding: 100px 40px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            gap: 40px;
+        /* HERO INTERACTIVO EN DOS COLUMNAS (MÁXIMO IMPACTO VISUAL) */
+        .hero-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 80px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
-        .hero-content { flex: 1; max-width: 650px; }
+        .hero-content { space-y: 24px; }
+        .hero-tag { color: var(--accent-cyan); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; }
         .hero h1 { 
-            font-size: 46px; 
+            font-size: 48px; 
             font-weight: 800; 
             line-height: 1.15; 
-            margin-bottom: 24px; 
+            margin-bottom: 20px;
             letter-spacing: -0.5px;
         }
         .hero h1 .cyan-highlight { color: var(--accent-cyan); border-bottom: 3px solid var(--accent-cyan); padding-bottom: 4px; }
-        .hero p { color: var(--text-muted-gray); font-size: 18px; margin-bottom: 35px; max-width: 550px; }
+        .hero p { color: var(--text-gray); font-size: 18px; margin-bottom: 35px; }
+        
         .btn-hero { 
-            background-color: var(--text-pure-white); 
+            background-color: var(--text-white); 
             color: var(--bg-deep-navy); 
             text-decoration: none; 
-            padding: 14px 32px; 
+            padding: 16px 36px; 
             border-radius: 6px; 
             font-weight: 700; 
             font-size: 15px; 
             text-transform: uppercase;
             letter-spacing: 0.5px;
             display: inline-block; 
-            transition: transform 0.2s; 
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(34, 211, 238, 0.2);
         }
         .btn-hero:hover { transform: translateY(-2px); background-color: #E2E8F0; }
-        
-        .hero-network-bg { flex: 1; display: flex; justify-content: center; max-width: 450px; opacity: 0.15; }
 
-        /* SECCIÓN PROPUESTA DE VALOR / DOLOR */
+        /* COLUMNA DERECHA: LA GRÁFICA DE DATOS ABSTRACTA DEL BANNER */
+        .hero-graphic-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-navy);
+            border-radius: 12px;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-graphic-box::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(34,211,238,0.05) 0%, transparent 70%);
+        }
+
+        /* SECCIÓN DE RESUMEN EJECUTIVO (EL DOLOR) */
         .pain-section { 
-            padding: 90px 20px; 
-            text-align: center; 
-            max-width: 850px; 
-            margin: 0 auto; 
-            border-top: 1px solid var(--border-navy);
-        }
-        .pain-section h2 { font-size: 30px; font-weight: 700; margin-bottom: 20px; }
-        .sub-bar { width: 60px; height: 3px; background-color: var(--accent-cyan); margin: 0 auto 30px auto; }
-        .pain-section p { font-size: 17px; color: var(--text-muted-gray); max-width: 750px; margin: 0 auto; }
-
-        /* MARCOS DE AUDITORÍA (TARJETAS PREMIUM) */
-        .services-section { padding: 80px 40px; border-top: 1px solid var(--border-navy); }
-        .services-container { max-width: 1200px; margin: 0 auto; }
-        .services-title { text-align: center; font-size: 24px; font-weight: 700; margin-bottom: 60px; letter-spacing: 1px; text-transform: uppercase; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .card { 
-            background-color: var(--bg-card); 
-            padding: 45px 35px; 
-            border-radius: 8px; 
-            border: 1px solid var(--border-navy); 
-            transition: border-color 0.3s ease;
-        }
-        .card:hover { border-color: var(--accent-cyan); }
-        .card-num { color: var(--accent-cyan); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-        .card h4 { font-size: 20px; font-weight: 700; margin-bottom: 15px; }
-        .card-text { color: var(--text-muted-gray); font-size: 15px; line-height: 1.6; }
-
-        /* ABOUT / EXPERTISE COMPARTIDO */
-        .about-section { 
-            padding: 100px 40px; 
+            padding: 100px 60px; 
             max-width: 1000px; 
             margin: 0 auto; 
-            display: flex; 
-            align-items: center; 
-            gap: 60px; 
-            flex-wrap: wrap;
+            text-align: center;
+            border-top: 1px solid var(--border-navy);
+        }
+        .pain-section h2 { font-size: 34px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px; }
+        .sub-bar { width: 80px; height: 3px; background-color: var(--accent-cyan); margin: 0 auto 35px auto; }
+        .pain-section p { font-size: 19px; color: var(--text-gray); line-height: 1.7; }
+
+        /* MÓDULOS DE AUDITORÍA (GRILLA EJECUTIVA DE 3 COLUMNAS) */
+        .services-section { padding: 100px 60px; border-top: 1px solid var(--border-navy); background-color: rgba(10, 20, 36, 0.3); }
+        .services-container { max-width: 1300px; margin: 0 auto; }
+        .services-title { text-align: center; font-size: 26px; font-weight: 700; margin-bottom: 60px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-white); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .card { 
+            background-color: var(--bg-card); 
+            padding: 50px 40px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border-navy); 
+            transition: all 0.3s ease;
+        }
+        .card:hover { border-color: var(--accent-cyan); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .card-num { color: var(--accent-cyan); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; display: block; }
+        .card h4 { font-size: 22px; font-weight: 700; margin-bottom: 15px; color: var(--text-white); }
+        .card-text { color: var(--text-gray); font-size: 16px; line-height: 1.6; }
+
+        /* PERFIL DEL CONSULTOR PRINCIPAL */
+        .about-section { 
+            padding: 100px 60px; 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 60px;
+            align-items: center;
             border-top: 1px solid var(--border-navy);
         }
         .avatar-frame { 
-            border: 2px solid var(--border-navy); 
-            padding: 25px; 
-            border-radius: 12px; 
+            border: 1px solid var(--border-navy); 
+            padding: 35px; 
+            border-radius: 8px; 
             text-align: center;
             background-color: var(--bg-card);
-            min-width: 220px;
         }
-        .avatar-name { font-size: 20px; font-weight: 700; color: var(--text-pure-white); }
-        .avatar-title { font-size: 12px; color: var(--accent-cyan); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
-        .about-content { flex: 1; min-width: 300px; }
-        .about-content h3 { font-size: 26px; font-weight: 700; margin-bottom: 20px; }
-        .about-p { color: var(--text-muted-gray); font-size: 16px; margin-bottom: 25px; }
+        .avatar-name { font-size: 22px; font-weight: 700; color: var(--text-white); }
+        .avatar-title { font-size: 12px; color: var(--accent-cyan); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 6px; }
+        .about-content h3 { font-size: 30px; font-weight: 700; margin-bottom: 20px; }
+        .about-p { color: var(--text-gray); font-size: 17px; margin-bottom: 25px; }
         .quote-box { 
-            background-color: rgba(34, 211, 238, 0.03); 
-            padding: 25px; 
-            border-left: 3px solid var(--accent-cyan); 
-            border-radius: 0 6px 6px 0; 
+            background-color: rgba(34, 211, 238, 0.02); 
+            padding: 30px; 
+            border-left: 4px solid var(--accent-cyan); 
+            border-radius: 0 8px 8px 0; 
             font-style: italic; 
-            color: var(--text-pure-white); 
-            font-size: 14px; 
+            color: var(--text-white); 
+            font-size: 15px; 
         }
 
-        /* FOOTER */
+        /* FORMULARIO DE CONTACTO / RECEPCIÓN DE PLIEGOS */
+        .contact-section { padding: 100px 60px; border-top: 1px solid var(--border-navy); max-width: 700px; margin: 0 auto; }
+        .contact-title { text-align: center; font-size: 28px; font-weight: 700; margin-bottom: 15px; }
+        .contact-p { text-align: center; color: var(--text-gray); margin-bottom: 40px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 14px; color: var(--text-gray); margin-bottom: 8px; font-weight: 500; }
+        .form-control { width: 100%; background-color: var(--bg-card); border: 1px solid var(--border-navy); border-radius: 6px; padding: 14px; color: var(--text-white); font-size: 15px; transition: border-color 0.2s; }
+        .form-control:focus { outline: none; border-color: var(--accent-cyan); }
+        .btn-submit { width: 100%; background-color: var(--accent-cyan); color: var(--bg-deep-navy); border: none; padding: 16px; border-radius: 6px; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background 0.2s; }
+        .btn-submit:hover { background-color: #67e8f9; }
+
+        /* FOOTER CORPORATIVO */
         footer { 
-            background-color: var(--bg-deep-navy); 
+            background-color: #02060d; 
             color: #475569; 
-            padding: 40px 20px; 
+            padding: 50px 20px; 
             text-align: center; 
-            font-size: 12px; 
+            font-size: 13px; 
             border-top: 1px solid var(--border-navy); 
         }
         
+        /* ADAPTABILIDAD PARA MÓVILES (RESPONSIVE) */
         @media (max-width: 968px) {
-            .hero { padding: 60px 20px; flex-direction: column; text-align: center; }
-            .hero h1 { font-size: 34px; }
-            .hero-content { max-width: 100%; }
-            .hero-network-bg { display: none; }
-            .about-section { flex-direction: column; text-align: center; gap: 40px; }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="logo-box">
-            <!-- CARGA TU LOGO REAL DESDE EL REPOSITORIO -->
-            <img src="bleg.jpg" alt="Borda & Co." class="logo-img">
-            <div class="logo-title-container">
-                <span class="logo-text">Borda & Co.</span>
-                <span class="logo-sub">Legal Engineering</span>
-            </div>
-        </div>
-        <div>
-            <a href="https://linkedin.com" target="_blank" class="btn-nav">Contacto Oficial</a>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <header class="hero">
-        <div class="hero-content">
-            <span class="hero-tag">Data Intelligence. Legal Strategy.</span>
-            <h1>Auditoría Forense de Datos y Gobernanza para <span class="cyan-highlight">Activos Tecnológicos</span></h1>
-            <p>Certificamos la consistencia, trazabilidad y cumplimiento normativo de plataformas complejas, infraestructuras Cloud y modelos de Inteligencia Artificial.</p>
-            <a href="https://linkedin.com" target="_blank" class="btn-hero">Solicitar Consulta Técnica</a>
-        </div>
-        <div class="hero-network-bg">
-            <svg width="100%" height="100%" viewBox="0 0 200 200" fill="none" stroke="#22D3EE" stroke-width="0.5">
-                <circle cx="40" cy="40" r="3" fill="#22D3EE"/>
-                <circle cx="120" cy="20" r="2" fill="#22D3EE"/>
-                <circle cx="160" cy="80" r="3" fill="#22D3EE"/>
-                <circle cx="80" cy="120" r="2" fill="#22D3EE"/>
-                <circle cx="140" cy="160" r="3" fill="#22D3EE"/>
-                <line x1="40" y1="40" x2="120" y2="20" stroke-opacity="0.4"/>
-                <line x1="120" y1="20" x2="160" y2="80" stroke-opacity="0.4"/>
-                <line x1="40" y1="40" x2="80" y2="120" stroke-opacity="0.4"/>
-                <line x1="80" y1="120" x2="140" y2="160" stroke-opacity="0.4"/>
-                <line x1="160" y1="80" x2="140" y2="160" stroke-opacity="0.4"/>
-            </svg>
-        </div>
-    </header>
-
-    <!-- PROPUESTA DE VALOR -->
-    <section class="pain-section">
+            .navbar { padding: 20px; }
+            .hero-container { grid-template-columns: 1fr; padding: 40px 20px; text-align: center; gap: 40px; }
+            .hero h1 { font-size: 36px; }
+            .hero-graphic-box { display: none; }
+            .pain-section, .services-section, .about-section, .contact-section { padding: 60px 20px; }
