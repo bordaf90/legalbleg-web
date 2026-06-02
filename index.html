@@ -3,66 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLEG | Borda & Co. - Data Engineering & Legal Engineering Advisory</title>
+    <title>Borda & Co. | Legal Engineering</title>
+    
+    <!-- TU FAVICON NATIVO EN CÓDIGO (EL LOGO REAL EN LA PESTAÑA DEL NAVEGADOR) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 160 160'><rect width='100%' height='100%' fill='%23040b14'/><path d='M45 40 H80 C105 40, 105 75, 80 75 H45 V40 Z' fill='none' stroke='%23ffffff' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/><path d='M45 75 H88 C112 75, 112 120, 88 120 H45 V75 Z' fill='none' stroke='%23ffffff' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/><line x1='45' y1='40' x2='45' y2='120' stroke='%23ffffff' stroke-width='10' stroke-linecap='round'/><circle cx='80' cy='40' r='6' fill='%2322d3ee'/><circle cx='68' cy='58' r='6' fill='%2322d3ee'/><circle cx='80' cy='75' r='6' fill='%2322d3ee'/><circle cx='68' cy='98' r='6' fill='%2322d3ee'/><circle cx='88' cy='120' r='6' fill='%2322d3ee'/><line x1='80' y1='40' x2='68' y2='58' stroke='%2322d3ee' stroke-width='3'/><line x1='68' y1='58' x2='80' y2='75' stroke='%2322d3ee' stroke-width='3'/><line x1='80' y1='75' x2='68' y2='98' stroke='%2322d3ee' stroke-width='3'/><line x1='68' y1='98' x2='88' y2='120' stroke='%2322d3ee' stroke-width='3'/></svg>">
+
     <style>
-        /* ESTILOS NATIVOS COMPATIBLES CON AZURE (SIN DEPENDENCIAS) */
+        /* PALETA DE COLORES PREMIUM DE TU BANNER DE LINKEDIN */
+        :root {
+            --bg-deep-navy: #040b14;    /* Fondo real ultra oscuro de tu logo */
+            --bg-card: #0a1424;         /* Azul noche intermedio para las tarjetas */
+            --accent-cyan: #22D3EE;     /* El celeste/cyan de las líneas de los nodos */
+            --text-pure-white: #FFFFFF; /* Texto principal en blanco */
+            --text-muted-gray: #94A3B8; /* Texto secundario gris claro */
+            --border-navy: #1E293B;     /* Bordes estructurales sutiles */
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; 
+            background-color: var(--bg-deep-navy); 
+            color: var(--text-pure-white); 
+            line-height: 1.6; 
+        }
         
-        /* NAVBAR */
-        .navbar { background-color: #0B132B; padding: 15px 30px; display: flex; justify-content: space-between; items-center: center; border-bottom: 2px solid #1c2541; }
-        .logo-box { display: flex; items-center: center; gap: 12px; }
-        .logo-badge { background-color: #06b6d4; color: white; font-weight: bold; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 6px; font-size: 18px; }
-        .logo-text { color: white; font-weight: 700; font-size: 20px; tracking: 0.5px; }
-        .logo-sub { color: #22d3ee; font-size: 12px; font-weight: 300; margin-left: 10px; letter-spacing: 1px; }
-        .btn-nav { background-color: #0891b2; color: white; text-decoration: none; padding: 8px 16px; border-radius: 4px; font-size: 14px; font-weight: 500; transition: background 0.2s; }
-        .btn-nav:hover { background-color: #06b6d4; }
+        /* HEADER / NAVBAR */
+        .navbar { 
+            padding: 20px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid var(--border-navy);
+            background-color: var(--bg-deep-navy);
+        }
+        .logo-box { display: flex; items-center: center; align-items: center; gap: 14px; }
+        
+        /* LOGO OFICIAL VECTORIZADO EN ALTA DEFINICIÓN */
+        .logo-svg { width: 50px; height: 50px; }
+        .logo-title-container { display: flex; flex-direction: column; justify-content: center; }
+        .logo-text { font-size: 20px; font-weight: 700; tracking: 0.5px; color: var(--text-pure-white); font-family: Garamond, Georgia, serif; }
+        .logo-sub { font-size: 10px; font-weight: 400; color: var(--text-muted-gray); letter-spacing: 2px; text-transform: uppercase; margin-top: 1px; }
+        
+        .btn-nav { 
+            border: 1px solid var(--accent-cyan); 
+            color: var(--accent-cyan); 
+            text-decoration: none; 
+            padding: 8px 18px; 
+            border-radius: 4px; 
+            font-size: 13px; 
+            font-weight: 600; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease; 
+        }
+        .btn-nav:hover { background-color: var(--accent-cyan); color: var(--bg-deep-navy); }
 
         /* HERO SECTION */
-        .hero { background-color: #0B132B; color: white; padding: 80px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; border-b: 1px solid #1e293b; }
-        .hero-content { flex: 1; min-width: 300px; max-width: 600px; }
-        .hero-tag { color: #22d3ee; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; display: block; }
-        .hero h1 { font-size: 42px; font-weight: 800; line-height: 1.2; margin-bottom: 20px; tracking: -0.5px; }
-        .hero h1 span { color: #67e8f9; }
-        .hero p { color: #cbd5e1; font-size: 18px; margin-bottom: 30px; }
-        .btn-hero { background-color: white; color: #0f172a; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: inline-block; transition: transform 0.2s; }
-        .btn-hero:hover { transform: translateY(-2px); background-color: #f1f5f9; }
-        .hero-graphic { flex: 1; min-width: 300px; display: flex; justify-content: center; opacity: 0.2; }
+        .hero { 
+            padding: 100px 40px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            gap: 40px;
+        }
+        .hero-content { flex: 1; max-width: 650px; }
+        .hero h1 { 
+            font-size: 46px; 
+            font-weight: 800; 
+            line-height: 1.15; 
+            margin-bottom: 24px; 
+            letter-spacing: -0.5px;
+        }
+        .hero h1 .cyan-highlight { color: var(--accent-cyan); border-bottom: 3px solid var(--accent-cyan); padding-bottom: 4px; }
+        .hero p { color: var(--text-muted-gray); font-size: 18px; margin-bottom: 35px; max-width: 550px; }
+        .btn-hero { 
+            background-color: var(--text-pure-white); 
+            color: var(--bg-deep-navy); 
+            text-decoration: none; 
+            padding: 14px 32px; 
+            border-radius: 6px; 
+            font-weight: 700; 
+            font-size: 15px; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block; 
+            transition: transform 0.2s; 
+        }
+        .btn-hero:hover { transform: translateY(-2px); background-color: #E2E8F0; }
+        
+        .hero-network-bg { flex: 1; display: flex; justify-content: center; max-width: 450px; opacity: 0.15; }
 
-        /* SECCIÓN DOLOR */
-        .pain-section { padding: 80px 20px; text-center: center; max-width: 800px; margin: 0 auto; text-align: center; }
-        .pain-section h2 { font-size: 32px; font-weight: 700; color: #0f172a; margin-bottom: 15px; }
-        .divider { w-width: 80px; height: 4px; background-color: #06b6d4; margin: 0 auto 25px auto; border-radius: 2px; width: 80px; }
-        .pain-section p { font-size: 18px; color: #475569; }
+        /* SECCIÓN PROPUESTA DE VALOR / DOLOR */
+        .pain-section { 
+            padding: 90px 20px; 
+            text-align: center; 
+            max-width: 850px; 
+            margin: 0 auto; 
+            border-top: 1px solid var(--border-navy);
+        }
+        .pain-section h2 { font-size: 30px; font-weight: 700; margin-bottom: 20px; }
+        .sub-bar { width: 60px; height: 3px; background-color: var(--accent-cyan); margin: 0 auto 30px auto; }
+        .pain-section p { font-size: 17px; color: var(--text-muted-gray); max-width: 750px; margin: 0 auto; }
 
-        /* SERVICIOS */
-        .services-section { background-color: #f1f5f9; padding: 80px 40px; }
-        .services-container { max-width: 1100px; margin: 0 auto; }
-        .services-title { text-align: center; font-size: 28px; font-weight: 700; color: #0f172a; margin-bottom: 50px; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background-color: white; padding: 40px 30px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-        .card-num { color: #0891b2; font-weight: 700; font-size: 18px; margin-bottom: 15px; }
-        .card-text { color: #475569; font-size: 15px; }
+        /* MARCOS DE AUDITORÍA (TARJETAS PREMIUM) */
+        .services-section { padding: 80px 40px; border-top: 1px solid var(--border-navy); }
+        .services-container { max-width: 1200px; margin: 0 auto; }
+        .services-title { text-align: center; font-size: 24px; font-weight: 700; margin-bottom: 60px; letter-spacing: 1px; text-transform: uppercase; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card { 
+            background-color: var(--bg-card); 
+            padding: 45px 35px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border-navy); 
+            transition: border-color 0.3s ease;
+        }
+        .card:hover { border-color: var(--accent-cyan); }
+        .card-num { color: var(--accent-cyan); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        .card h4 { font-size: 20px; font-weight: 700; margin-bottom: 15px; }
+        .card-text { color: var(--text-muted-gray); font-size: 15px; line-height: 1.6; }
 
-        /* ABOUT FOUNDER */
-        .about-section { padding: 90px 40px; max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
-        .avatar-box { background-color: #0B132B; color: white; width: 180px; height: 180px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: bold; text-align: center; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); padding: 20px; }
-        .avatar-title { font-size: 12px; color: #22d3ee; font-weight: 300; margin-top: 5px; }
+        /* ABOUT / EXPERTISE COMPARTIDO */
+        .about-section { 
+            padding: 100px 40px; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            display: flex; 
+            align-items: center; 
+            gap: 60px; 
+            flex-wrap: wrap;
+            border-top: 1px solid var(--border-navy);
+        }
+        .avatar-frame { 
+            border: 2px solid var(--border-navy); 
+            padding: 25px; 
+            border-radius: 12px; 
+            text-align: center;
+            background-color: var(--bg-card);
+            min-width: 220px;
+        }
+        .avatar-name { font-size: 20px; font-weight: 700; color: var(--text-pure-white); }
+        .avatar-title { font-size: 12px; color: var(--accent-cyan); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
         .about-content { flex: 1; min-width: 300px; }
-        .about-content h4 { font-size: 24px; font-weight: 700; color: #0f172a; margin-bottom: 5px; }
-        .about-role { color: #0891b2; font-weight: 500; margin-bottom: 15px; }
-        .about-p { color: #475569; margin-bottom: 15px; }
-        .quote-box { background-color: #eff6ff; padding: 20px; border-left: 4px solid #06b6d4; border-radius: 0 8px 8px 0; font-style: italic; color: #334155; font-size: 14px; }
+        .about-content h3 { font-size: 26px; font-weight: 700; margin-bottom: 20px; }
+        .about-p { color: var(--text-muted-gray); font-size: 16px; margin-bottom: 25px; }
+        .quote-box { 
+            background-color: rgba(34, 211, 238, 0.03); 
+            padding: 25px; 
+            border-left: 3px solid var(--accent-cyan); 
+            border-radius: 0 6px 6px 0; 
+            font-style: italic; 
+            color: var(--text-pure-white); 
+            font-size: 14px; 
+        }
 
         /* FOOTER */
-        footer { background-color: #0B132B; color: #94a3b8; padding: 30px 20px; text-align: center; font-size: 12px; border-top: 1px solid #1e293b; }
+        footer { 
+            background-color: var(--bg-deep-navy); 
+            color: #475569; 
+            padding: 40px 20px; 
+            text-align: center; 
+            font-size: 12px; 
+            border-top: 1px solid var(--border-navy); 
+        }
         
-        @media (max-width: 768px) {
-            .hero { padding: 40px 20px; text-align: center; }
-            .hero h1 { font-size: 32px; }
+        @media (max-width: 968px) {
+            .hero { padding: 60px 20px; flex-direction: column; text-align: center; }
+            .hero h1 { font-size: 34px; }
             .hero-content { max-width: 100%; }
-            .hero-graphic { display: none; }
-            .about-section { flex-direction: column; text-align: center; gap: 30px; }
+            .hero-network-bg { display: none; }
+            .about-section { flex-direction: column; text-align: center; gap: 40px; }
         }
     </style>
 </head>
@@ -71,80 +182,14 @@
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo-box">
-            <div class="logo-badge">B</div>
-            <span class="logo-text">BORDA & CO. <span class="logo-sub">LEGAL ENGINEERING</span></span>
-        </div>
-        <div>
-            <a href="https://linkedin.com" target="_blank" class="btn-nav">Contacto Oficial</a>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <header class="hero">
-        <div class="hero-content">
-            <span class="hero-tag">BLEG ADVISORY</span>
-            <h1>Auditoría Forense de Datos y Gobernanza para <span>Activos Tecnológicos</span>.</h1>
-            <p>Certificamos la consistencia, trazabilidad y cumplimiento normativo de plataformas complejas, infraestructuras Cloud y modelos de IA. Cerramos la brecha entre el marco legal y la base operativa de los datos.</p>
-            <a href="https://linkedin.com" target="_blank" class="btn-hero">Solicitar Consulta Técnica (10 min)</a>
-        </div>
-        <div class="hero-graphic">
-            <!-- Icono simplificado nativo -->
-            <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="0.5">
-                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/>
-                <path d="M12 2V22"/>
-                <path d="M2 12H22"/>
-            </svg>
-        </div>
-    </header>
-
-    <!-- EL DOLOR DE MERCADO -->
-    <section class="pain-section">
-        <h2>¿Soportan tus datos las exigencias de tus contratos y auditorías?</h2>
-        <div class="divider"></div>
-        <p>El derecho tradicional diseña excelentes marcos normativos y acuerdos en el papel, pero carece de las herramientas técnicas para auditar el núcleo profundo de los datos. En BLEG aportamos el rigor de la ingeniería para garantizar la inexpugnabilidad técnica de los activos digitales de la empresa.</p>
-    </section>
-
-    <!-- SERVICIOS CORE -->
-    <section class="services-section">
-        <div class="services-container">
-            <h3 class="services-title">Nuestros Marcos de Auditoría Analítica</h3>
-            <div class="services-grid">
-                <div class="card">
-                    <div class="card-num">01 / Auditoría Forense Express</div>
-                    <p class="card-text">Certificación integral de consistencia de datasets, registros críticos (logs) y viabilidad matemática de SLAs en contratos de software complejos frente a infraestructuras Cloud reales.</p>
-                </div>
-                <div class="card">
-                    <div class="card-num">02 / Compliance de Modelos de IA</div>
-                    <p class="card-text">Auditoría sobre la procedencia, legalidad y mitigación de sesgos en conjuntos de datos de entrenamiento para algoritmos y modelos de Machine Learning.</p>
-                </div>
-                <div class="card">
-                    <div class="card-num">03 / Due Diligence Tecnológico</div>
-                    <p class="card-text">Preparación analítica de la base operativa de datos y dependencias de código para asegurar valuaciones óptimas en procesos de inversión o venta corporativa (M&A).</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOBRE EL FOUNDER -->
-    <section class="about-section">
-        <div class="avatar-box">
-            Abraham Borda
-            <span class="avatar-title">Founder & CEO</span>
-        </div>
-        <div class="about-content">
-            <h4>Abraham Borda</h4>
-            <p class="about-role">Principal Consultant | Legal Engineer</p>
-            <p class="about-p">Analista de Sistemas especializado en ingeniería de datos, con experiencia en el despliegue y análisis de arquitecturas críticas corporativas.</p>
-            <div class="quote-box">
-                "Integrando de forma estratégica la formación institucional en Derecho a mi perfil de sistemas para consolidar un nuevo estándar capaz de unificar la precisión milimétrica de los datos con el blindaje corporativo que exige el mercado internacional."
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 BLEG | Borda & Co. Todos los derechos reservados. Auditoría forense de datos, gobernanza y mitigación de riesgos en activos tecnológicos.</p>
-    </footer>
-
-</body>
-</html>
+            <!-- LOGO REAL INTEGRADO DE FORMA NATIVA (INALTERABLE POR EL NAVEGADOR) -->
+            <svg class="logo-svg" viewBox="0 0 160 160">
+                <path d="M45 40 H80 C105 40, 105 75, 80 75 H45 V40 Z" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M45 75 H88 C112 75, 112 120, 88 120 H45 V75 Z" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="45" y1="40" x2="45" y2="120" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/>
+                <!-- Trazado interno de datos e ingeniería con nodos cyan -->
+                <circle cx="80" cy="40" r="5" fill="#22D3EE"/>
+                <circle cx="68" cy="58" r="5" fill="#22D3EE"/>
+                <circle cx="80" cy="75" r="5" fill="#22D3EE"/>
+                <circle cx="68" cy="98" r="5" fill="#22D3EE"/>
+                <circle cx="88" cy="120" r="5" fill="#22D3EE"/>
